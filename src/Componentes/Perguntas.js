@@ -1,33 +1,16 @@
 import styled from "styled-components"
 
-export default function Perguntas(props){
- 
-    return(
-        <ContainerPerguntas>
-            {props.cards.map((item)=>
-            
-            <CaixaPerguntas>
-                <h1>Pergunta {item.id}</h1>
-                <img key={item.id} onClick={() => props.clicou(item.id)} src="./assets/seta_play.png"></img>
-            </CaixaPerguntas>
-            
-            )}
-        </ContainerPerguntas>
+export default function Perguntas(props) {
 
+    return (
+        
+        <CaixaPerguntas>
+            <h1>{props.cards.name}</h1>
+            <img key={props.cards.id} onClick={() => props.clicou(props.cards.id)} src="./assets/seta_play.png"></img>
+        </CaixaPerguntas> 
 
     )
 }
-
-const ContainerPerguntas = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 444px;
-    background-color: lightgoldenrodyellow;
-    margin-top: 51px;
-    overflow-y: scroll;
-`
 
 const CaixaPerguntas = styled.div`
     width: 300px;
