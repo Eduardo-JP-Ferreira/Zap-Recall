@@ -2,14 +2,25 @@ import styled from "styled-components"
 
 export default function Perguntas(props) {
 
-    return (
-        
-        <CaixaPerguntas>
-            <h1>{props.cards.name}</h1>
-            <img key={props.cards.id} onClick={() => props.clicou(props.cards.id)} src="./assets/seta_play.png"></img>
-        </CaixaPerguntas> 
+    //console.log(props.contaClique)
+    if(props.contaClique[props.cards.id]==0){
+            
+        return (     
+            <CaixaPerguntas>
+                <h1>{props.cards.name}</h1>
+                <img key={props.cards.id} onClick={() => props.clicou(props.cards.id)} src="./assets/seta_play.png"></img>
+            </CaixaPerguntas> 
+        )
+   }
+   else{
 
-    )
+       return(
+        <CaixaPerguntas>
+            <h1>{props.cards.question}</h1>
+            <img key={props.cards.id} onClick={() => props.clicou(props.cards.id)} src="./assets/seta_virar.png"></img>
+        </CaixaPerguntas> 
+        )
+    }
 }
 
 const CaixaPerguntas = styled.div`

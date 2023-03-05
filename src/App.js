@@ -17,9 +17,20 @@ function App(){
         { id: "7", name: "Pergunta 8", question: "Usamos estado (state) para __", answer: "Dizer para o React quais informações quando atualizadas devem renderizar a tela novamente" }
     ]
 
-    const [contaClique, setContaClique] = useState(["0","0","0","0","0","0","0",])
+    const [contaClique, setContaClique] = useState([0,0,0,0,0,0,0,0])
+    const [atulizarTela, setAtulizarTela] = useState(1)
+    let novoValorContador = 0
+    console.log("co", contaClique)
+
     function clicou(chave){
-        alert(`Clicou ${Number(chave)+1} OK`)
+
+        const novoArray = [...contaClique]
+        novoValorContador = Number(contaClique[chave]) + 1
+        novoArray[chave]=novoValorContador
+        console.log("Novo Array",novoArray)
+
+        setContaClique(novoArray)
+        console.log("contaApos",contaClique)
     }
 
     return (
@@ -29,7 +40,7 @@ function App(){
             <Logo/>
             <ContainerPerguntas>
             {cards.map((item)=>
-                <Perguntas clicou={clicou} cards={cards[item.id]}/>
+                <Perguntas clicou={clicou} cards={cards[item.id]} contaClique={contaClique}/>
             )}
             </ContainerPerguntas>
             <Resultado/>
