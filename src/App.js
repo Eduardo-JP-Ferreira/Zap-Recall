@@ -19,17 +19,14 @@ function App(){
 
     const [contaClique, setContaClique] = useState([0,0,0,0,0,0,0,0])
     const [resultado, setResultado] = useState(["_","_","_","_","_","_","_","_"])
-    const [atulizarTela, setAtulizarTela] = useState(1)
     const [contadorConcluidos, setContadorConcluidos] = useState(0)
     let novoValorContador = 0
 
     function clicou(chave){
-       // console.log(contaClique)
         const novoArray = [...contaClique]
         novoValorContador = Number(contaClique[chave]) + 1
         novoArray[chave]=novoValorContador
         setContaClique(novoArray)
-        //console.log(contaClique)
     }
 
     function botao(codigo, chave){

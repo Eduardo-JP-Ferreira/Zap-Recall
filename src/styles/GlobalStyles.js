@@ -29,6 +29,8 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	background-color: #E5E5E5;
+	display: flex;
+	justify-content: center;
 }
 ol, ul {
 	list-style: none;

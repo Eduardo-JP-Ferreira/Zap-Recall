@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export default function Perguntas(props) {
 
-    if(props.contaClique[props.cards.id]==0){
+    if(props.contaClique[props.cards.id]===0){
             
         return (     
             <CaixaPerguntas1 data-test="flashcard">
@@ -11,7 +11,7 @@ export default function Perguntas(props) {
             </CaixaPerguntas1> 
         )
    }
-   else if(props.contaClique[props.cards.id]==1){
+   else if(props.contaClique[props.cards.id]===1){
 
        return(
         <CaixaPerguntas2 data-test="flashcard">
@@ -20,7 +20,7 @@ export default function Perguntas(props) {
         </CaixaPerguntas2> 
         )
     }
-    else if(props.contaClique[props.cards.id]==2){
+    else if(props.contaClique[props.cards.id]===2){
         return(
          <CaixaPerguntas3 data-test="flashcard">
              <h1 data-test="flashcard-text">{props.cards.answer}</h1>
