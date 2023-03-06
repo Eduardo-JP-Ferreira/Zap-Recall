@@ -86,7 +86,6 @@ const ContainerPerguntas = styled.div`
     align-items: center;
     width: 100%;
     height: 444px;
-    background-color: lightgoldenrodyellow;
     margin-top: 51px;
     overflow-y: scroll;
 `

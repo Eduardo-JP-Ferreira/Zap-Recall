@@ -5,7 +5,7 @@ export default function Resultado(props){
     return(
         <ContainerResultado>
             <CaixaResultado>
-                <h1>{props.contadorConcluidos}/8 CONCLUÍDOS</h1>
+                <h1 data-test="footer">{props.contadorConcluidos}/8 CONCLUÍDOS</h1>
             </CaixaResultado>
         </ContainerResultado>
     )
@@ -14,7 +14,7 @@ export default function Resultado(props){
 const ContainerResultado = styled.div`
     width: 375px;
     height: 70px;
-    background-color: lightgray;
+    background-color: #FFFFFF;
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
 `
 

@@ -5,54 +5,54 @@ export default function Perguntas(props) {
     if(props.contaClique[props.cards.id]==0){
             
         return (     
-            <CaixaPerguntas1>
-                <h1>{props.cards.name}</h1>
-                <img key={props.cards.id} onClick={() => props.clicou(props.cards.id)} src="./assets/seta_play.png"></img>
+            <CaixaPerguntas1 data-test="flashcard">
+                <h1 data-test="flashcard-text">{props.cards.name}</h1>
+                <img data-test="play-btn" key={props.cards.id} onClick={() => props.clicou(props.cards.id)} src="./assets/seta_play.png"></img>
             </CaixaPerguntas1> 
         )
    }
    else if(props.contaClique[props.cards.id]==1){
 
        return(
-        <CaixaPerguntas2>
-            <h1>{props.cards.question}</h1>
-            <img key={props.cards.id} onClick={() => props.clicou(props.cards.id)} src="./assets/seta_virar.png"></img>
+        <CaixaPerguntas2 data-test="flashcard">
+            <h1 data-test="flashcard-text">{props.cards.question}</h1>
+            <img data-test="turn-btn" key={props.cards.id} onClick={() => props.clicou(props.cards.id)} src="./assets/seta_virar.png"></img>
         </CaixaPerguntas2> 
         )
     }
     else if(props.contaClique[props.cards.id]==2){
         return(
-         <CaixaPerguntas3>
-             <h1>{props.cards.answer}</h1>
+         <CaixaPerguntas3 data-test="flashcard">
+             <h1 data-test="flashcard-text">{props.cards.answer}</h1>
              <CaixaBotoes>
-              <BotaoErro onClick={() => props.botao("erro",props.cards.id)}>Não lembrei</BotaoErro>
-              <BotaoQuase onClick={() => props.botao("quase",props.cards.id)}>Quase não lembrei</BotaoQuase>
-              <BotaoAcerto onClick={() => props.botao("acerto",props.cards.id)}>Zap!</BotaoAcerto>
+              <BotaoErro data-test="no-btn" onClick={() => props.botao("erro",props.cards.id)}>Não lembrei</BotaoErro>
+              <BotaoQuase data-test="partial-btn" onClick={() => props.botao("quase",props.cards.id)}>Quase não lembrei</BotaoQuase>
+              <BotaoAcerto data-test="zap-btn" onClick={() => props.botao("acerto",props.cards.id)}>Zap!</BotaoAcerto>
              </CaixaBotoes>
          </CaixaPerguntas3> 
          )
      }
      else if(props.contaClique[props.cards.id]>2 && props.resultado[props.cards.id] == "erro"){
         return(
-            <CaixaPerguntasErro>
-                <h1>{props.cards.name}</h1>
-                <img key={props.cards.id} onClick={() => props.clicou(props.cards.id)} src="./assets/icone_erro.png"></img>
+            <CaixaPerguntasErro data-test="flashcard">
+                <h1 data-test="flashcard-text">{props.cards.name}</h1>
+                <img data-test="no-icon" key={props.cards.id} onClick={() => props.clicou(props.cards.id)} src="./assets/icone_erro.png"></img>
             </CaixaPerguntasErro> 
         )
      }
      else if(props.contaClique[props.cards.id]>2 && props.resultado[props.cards.id] == "quase"){
         return(
-            <CaixaPerguntasQuase>
-                <h1>{props.cards.name}</h1>
-                <img key={props.cards.id} onClick={() => props.clicou(props.cards.id)} src="./assets/icone_quase.png"></img>
+            <CaixaPerguntasQuase data-test="flashcard">
+                <h1 data-test="flashcard-text">{props.cards.name}</h1>
+                <img data-test="partial-icon" key={props.cards.id} onClick={() => props.clicou(props.cards.id)} src="./assets/icone_quase.png"></img>
             </CaixaPerguntasQuase> 
         )
      }
      else if(props.contaClique[props.cards.id]>2 && props.resultado[props.cards.id] == "acerto"){
         return(
-            <CaixaPerguntasAcerto>
-                <h1>{props.cards.name}</h1>
-                <img key={props.cards.id} onClick={() => props.clicou(props.cards.id)} src="./assets/icone_certo.png"></img>
+            <CaixaPerguntasAcerto data-test="flashcard">
+                <h1 data-test="flashcard-text">{props.cards.name}</h1>
+                <img data-test="zap-icon" key={props.cards.id} onClick={() => props.clicou(props.cards.id)} src="./assets/icone_certo.png"></img>
             </CaixaPerguntasAcerto> 
         )
      }

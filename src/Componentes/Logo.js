@@ -12,7 +12,6 @@ export default function Logo(){
 const ContainerTopo = styled.div`
     width: 375px;
     height: 60px;
-    background-color: lightblue;
     display: flex;
     justify-content: center;
     align-items: center;
