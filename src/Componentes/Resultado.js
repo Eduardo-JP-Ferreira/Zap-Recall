@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export default function Resultado(){
+export default function Resultado(props){
 
     return(
         <ContainerResultado>
             <CaixaResultado>
-                <h1>0/4 CONCLUÍDOS</h1>
+                <h1>{props.contadorConcluidos}/8 CONCLUÍDOS</h1>
             </CaixaResultado>
         </ContainerResultado>
     )

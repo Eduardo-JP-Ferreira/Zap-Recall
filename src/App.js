@@ -14,25 +14,49 @@ function App(){
         { id: "4", name: "Pergunta 5", question: "O ReactDOM nos ajuda __", answer: "Interagindo com a DOM para colocar componentes React na mesma" },
         { id: "5", name: "Pergunta 6", question: "Usamos o npm para __", answer: "Gerenciar os pacotes necessários e suas dependências" },
         { id: "6", name: "Pergunta 7", question: "Usamos props para __", answer: "Passar diferentes informações para componentes" },
-        { id: "7", name: "Pergunta 8", question: "Usamos estado (state) para __", answer: "Dizer para o React quais informações quando atualizadas devem renderizar a tela novamente" }
+        { id: "7", name: "Pergunta 8", question: "export __ function App(){}", answer: "default" }
     ]
 
     const [contaClique, setContaClique] = useState([0,0,0,0,0,0,0,0])
+    const [resultado, setResultado] = useState(["_","_","_","_","_","_","_","_"])
     const [atulizarTela, setAtulizarTela] = useState(1)
+    const [contadorConcluidos, setContadorConcluidos] = useState(0)
     let novoValorContador = 0
-    console.log("co", contaClique)
 
     function clicou(chave){
+       // console.log(contaClique)
+        const novoArray = [...contaClique]
+        novoValorContador = Number(contaClique[chave]) + 1
+        novoArray[chave]=novoValorContador
+        setContaClique(novoArray)
+        //console.log(contaClique)
+    }
+
+    function botao(codigo, chave){
+
+        setContadorConcluidos(contadorConcluidos + 1)
+
+        if(codigo === "erro"){
+            const novoResultado = [...resultado]
+            novoResultado[chave] = "erro"
+            setResultado(novoResultado)
+        }
+        else if (codigo === "quase"){
+            const novoResultado = [...resultado]
+            novoResultado[chave] = "quase"
+            setResultado(novoResultado)
+        }
+        else{
+            const novoResultado = [...resultado]
+            novoResultado[chave] = "acerto"
+            setResultado(novoResultado)
+        }
 
         const novoArray = [...contaClique]
         novoValorContador = Number(contaClique[chave]) + 1
         novoArray[chave]=novoValorContador
-        console.log("Novo Array",novoArray)
-
         setContaClique(novoArray)
-        console.log("contaApos",contaClique)
     }
-
     return (
   
         <Container>
@@ -40,10 +64,10 @@ function App(){
             <Logo/>
             <ContainerPerguntas>
             {cards.map((item)=>
-                <Perguntas clicou={clicou} cards={cards[item.id]} contaClique={contaClique}/>
+                <Perguntas clicou={clicou} cards={cards[item.id]} contaClique={contaClique} botao={botao} resultado={resultado}/>
             )}
             </ContainerPerguntas>
-            <Resultado/>
+            <Resultado contadorConcluidos={contadorConcluidos}/>
         </Container>
         );
 }
